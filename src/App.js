@@ -1,51 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
-import initializeAuthentication from './Firebase/firebse.initialize';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-import { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import About from './components/About/About';
+import Home from './components/Home/Home';
+import Notfound from './components/Notfound/Notfound';
+import Services from './components/Services/Services';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Warranty from './Components/Warranty/Warranty';
+import Newpatients from './Components/Newpatients/Newpatients';
 
 
-initializeAuthentication();
-const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
-const auth = getAuth()
+
 
 function App() {
-  const [user, setUser] = useState({})
-  const handleGoogleSignIn = () => {
-
-    signInWithPopup(auth, googleProvider)
-      .then(result => {
-        const { displayName, email, photoURL } = result.user
-        const loginuser = {
-          name: displayName,
-          email: email,
-          photo: photoURL,
-        };
-        setUser(loginuser);
-      })
-      .catch(error => {
-        console.log(error.message);
-      })
-  }
-
-  const handleGithubSignIn = () => {
-    signInWithPopup(auth, githubProvider)
-      .then(result => {
-        const user = result.user
-        console.log(user);
-      })
-  }
   return (
     <div className="App">
-      <button onClick={handleGoogleSignIn}> Google Sign in</button>
-      <button onClick={handleGithubSignIn}> Github Sign in</button>
-      <br />
-      {user.email && <div>
-        <h2>{user.name}</h2>
-      </div>}
-    </div>
+      <BrowserRouter>
+        <Header></Header>
+        <Routes>
+          <Route path='/home' element={<Home></Home>}>
+
+          </Route>
+          <Route path='/' element={<Home></Home>}>
+
+          </Route>
+          <Route exact path='/about' element={<About></About>}>
+
+          </Route>
+          <Route path='/services' element={<Services></Services>}>
+          </Route>
+          <Route path='/newpatients' element={<Newpatients></Newpatients>}>
+          </Route>
+          <Route path='/warranty' element={<Warranty></Warranty>}></Route>
+          {/* <Route path='/newPatients' element={<Newpa></warranty>}>
+
+          </Route> */}
+          <Route path='*' element={<Notfound></Notfound>}>
+
+          </Route>
+        </Routes>
+        <Footer></Footer>
+      </BrowserRouter>
+    </div >
   );
 }
+
+
 
 export default App;
