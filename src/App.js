@@ -10,8 +10,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Warranty from './Components/Warranty/Warranty';
 import Newpatients from './Components/Newpatients/Newpatients';
-
-
+import Loggedin from './Components/Loggedin/Loggedin';
 
 
 function App() {
@@ -34,9 +33,8 @@ function App() {
           <Route path='/newpatients' element={<Newpatients></Newpatients>}>
           </Route>
           <Route path='/warranty' element={<Warranty></Warranty>}></Route>
-          {/* <Route path='/newPatients' element={<Newpa></warranty>}>
+          <Route path='/loggedin' element={<Loggedin></Loggedin>}></Route>
 
-          </Route> */}
           <Route path='*' element={<Notfound></Notfound>}>
 
           </Route>
@@ -45,7 +43,7 @@ function App() {
       </BrowserRouter>
     </div >
   );
-}
+};
 
 
 
