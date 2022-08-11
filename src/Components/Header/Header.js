@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Carousel from 'react-bootstrap/Carousel';
+import { NavLink } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -14,7 +16,7 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                            <NavLink as={Link} to="/loggedin">Log in</NavLink>
                         </Nav>
                     </Container>
                 </Navbar>
@@ -34,7 +36,7 @@ const Header = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-10 "
-                        src="https://images.unsplash.com/photo-1606811856475-5e6fcdc6e509?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80"
+                        // src="https://images.unsplash.com/photo-1606811856475-5e6fcdc6e509?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80"
                         alt="Second slide"
                     />
 
