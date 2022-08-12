@@ -14,7 +14,7 @@ const Header = () => {
                     <Container>
                         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <NavLink as={Link} to="/home">Home</NavLink>
                             <Nav.Link href="#features">Features</Nav.Link>
                             <NavLink as={Link} to="/loggedin">Log in</NavLink>
                         </Nav>
