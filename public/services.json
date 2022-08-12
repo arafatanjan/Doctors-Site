@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "img": "https://cdn.pixabay.com/photo/2018/05/04/20/01/website-3374825_960_720.jpg",
+        "name": "Responsive Web Design",
+        "description": "In this Responsive Web Design Certification you will learn the languages that developers use to build webpages HTML  for content, and CSS for design.",
+        "price": 100
+    },
+    {
+        "id": 2,
+        "img": "https://cdn.pixabay.com/photo/2018/01/17/20/22/analytics-3088958_960_720.jpg",
+        "name": "JavaScript Algorithms and Data Structures",
+        "description": "While HTML and CSS control the content and styling of a page, JavaScript is used to make it interactive. In the JavaScript Algorithm and Data Structures Certification, you will learn the fundamentals of JavaScript including variables, arrays, objects, loops and functions.",
+        "price": 200,
+    },
+    {
+        "id": 3,
+        "img": "https://cdn.pixabay.com/photo/2018/01/17/20/22/analytics-3088958_960_720.jpg",
+        "name": "Front End Development Libraries",
+        "description": "In the Front End Development Libraries Certification, youll learn how to style your site quickly with Bootstrap. Youll also learn how add logic to your CSS styles and extend them with Sass.",
+        "price": 300,
+    },
+    {
+        "id": 4,
+        "img": "https://cdn.pixabay.com/photo/2021/05/11/17/21/charts-6246450_960_720.png",
+        "name": "Data Visualization",
+        "description": "In the Data Visualization Certification, youll build charts, graphs, and maps to present different types of data with the D3.js library.Youll also learn about JavaScript Object Notation and how to work with data online using an Application Programming Interface.",
+        "price": 400,
+    },
+    {
+        "id": 5,
+        "img": "https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png",
+        "name": "Back End Development and APIs",
+        "description": "Until this point, youve only used JavaScript on the front end to add interactivity to a page, solve algorithm challenges, or build an SPA. But JavaScript can also be used on the back end, or server, to build entire web applications.",
+        "price": 500,
+    },
+    {
+        "id": 6,
+        "img": "https://cdn.pixabay.com/photo/2022/06/23/11/55/quality-7279628_960_720.png",
+        "name": "Quality Assurance",
+        "description": "As your programs or web applications become more complex, youll want to test them to make sure that new changes dont break their original functionality.In the Quality Assurance Certification, youll learn how to write tests with Chai to ensure your applications work the way you expect them to.",
+        "price": 600
+    },
+    {
+        "id": 7,
+        "img": "https://cdn.pixabay.com/photo/2017/06/21/18/44/exam-2428208_960_720.png",
+        "name": "Scientific Computing with Python",
+        "description": "Python is one of the most popular, flexible programming languages today. You can use it for everything from basic scripting to machine learning.In the Scientific Computing with Python Certification, youll learn Python fundamentals like variables, loops, conditionals, and functions. Then youll quickly ramp up to complex data structures, networking, relational databases, and data visualization.",
+        "price": 700,
+    },
+    {
+        "id": 8,
+        "img": "https://cdn.pixabay.com/photo/2021/05/11/17/21/charts-6246450_960_720.png",
+        "name": "Data Visualization",
+        "description": "In the Data Visualization Certification, youll build charts, graphs, and maps to present different types of data with the D3.js library.Youll also learn about JavaScript Object Notation and how to work with data online using an Application Programming Interface.",
+        "price": 800,
+    },
+    {
+        "id": 9,
+        "img": "https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168233_960_720.jpg",
+        "name": "Information Security",
+        "description": "With everything we do online, theres a vast amount of sensitive information at risk: email addresses, passwords, phone numbers, and much more.With the Information Security Certification, youll build a secure web app with HelmetJS to learn the fundamentals of protecting peoples information online.",
+        "price": 900,
+    }
+]
