@@ -1,65 +1,65 @@
 [
     {
         "id": 1,
-        "img": "https://cdn.pixabay.com/photo/2018/05/04/20/01/website-3374825_960_720.jpg",
-        "name": "Responsive Web Design",
-        "description": "In this Responsive Web Design Certification you will learn the languages that developers use to build webpages HTML  for content, and CSS for design.",
+        "img": "https://i.ibb.co/P5LDZpQ/afro-girl-dental-chair-with-dentist-assistant-around.jpg",
+        "name": "White cavity fillings",
+        "description": "White (composite) fillings are made out of powdered glass and ceramic added to a resin base, which comes out to a shade of white which matches your teeth..",
         "price": 100
     },
     {
         "id": 2,
-        "img": "https://cdn.pixabay.com/photo/2018/01/17/20/22/analytics-3088958_960_720.jpg",
-        "name": "JavaScript Algorithms and Data Structures",
-        "description": "While HTML and CSS control the content and styling of a page, JavaScript is used to make it interactive. In the JavaScript Algorithm and Data Structures Certification, you will learn the fundamentals of JavaScript including variables, arrays, objects, loops and functions.",
-        "price": 200,
+        "img": "https://i.ibb.co/YfP5xGr/beautiful-girl-sitting-dentist-s-office-1.jpg",
+        "name": "Dental crowns",
+        "description": "How long do dental crowns last The average lifespan for a well-maintained dental crown is typically around 15 years. However, when taken care of properly, it is common to see them last upwards of 25-30 years",
+        "price": 200
     },
     {
         "id": 3,
-        "img": "https://cdn.pixabay.com/photo/2018/01/17/20/22/analytics-3088958_960_720.jpg",
-        "name": "Front End Development Libraries",
-        "description": "In the Front End Development Libraries Certification, youll learn how to style your site quickly with Bootstrap. Youll also learn how add logic to your CSS styles and extend them with Sass.",
-        "price": 300,
+        "img": "https://i.ibb.co/QHMNtpr/beautiful-girl-sitting-dentist-s-office.jpg",
+        "name": "Gum disease treatments",
+        "description": "Topical or oral antibiotics can help control bacterial infection. Topical antibiotics can include antibiotic mouth rinses or insertion of gels containing antibiotics in the space between your teeth and gums",
+        "price": 300
     },
     {
         "id": 4,
-        "img": "https://cdn.pixabay.com/photo/2021/05/11/17/21/charts-6246450_960_720.png",
-        "name": "Data Visualization",
-        "description": "In the Data Visualization Certification, youll build charts, graphs, and maps to present different types of data with the D3.js library.Youll also learn about JavaScript Object Notation and how to work with data online using an Application Programming Interface.",
-        "price": 400,
+        "img": "https://i.ibb.co/Ltg3D4s/cute-little-girl-sitting-dentist-s-office.jpg",
+        "name": "Botox for TMJ, head, & facial pain",
+        "description": "Beyond aesthetic improvements, Botox treats common dental concerns like jaw pain, headaches, migraines, and clenching",
+        "price": 400
     },
     {
         "id": 5,
-        "img": "https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png",
-        "name": "Back End Development and APIs",
-        "description": "Until this point, youve only used JavaScript on the front end to add interactivity to a page, solve algorithm challenges, or build an SPA. But JavaScript can also be used on the back end, or server, to build entire web applications.",
-        "price": 500,
+        "img": "https://i.ibb.co/HDmy9Z9/dentist-doing-check-up-patient.jpg",
+        "name": "Dentures",
+        "description": "Replace missing teeth! Full and partial dentures created with top-of-the-line materials restore your ability to chew, speak, and smile. ",
+        "price": 500
     },
     {
         "id": 6,
-        "img": "https://cdn.pixabay.com/photo/2022/06/23/11/55/quality-7279628_960_720.png",
-        "name": "Quality Assurance",
-        "description": "As your programs or web applications become more complex, youll want to test them to make sure that new changes dont break their original functionality.In the Quality Assurance Certification, youll learn how to write tests with Chai to ensure your applications work the way you expect them to.",
+        "img": "https://i.ibb.co/Hx1hdYJ/shine-bright-today-village-dental.jpg",
+        "name": "Nightguards/mouthguards",
+        "description": "Stop grinding your teeth at night and protect your teeth during sports with a custom-made mouthguard.",
         "price": 600
     },
     {
         "id": 7,
-        "img": "https://cdn.pixabay.com/photo/2017/06/21/18/44/exam-2428208_960_720.png",
-        "name": "Scientific Computing with Python",
-        "description": "Python is one of the most popular, flexible programming languages today. You can use it for everything from basic scripting to machine learning.In the Scientific Computing with Python Certification, youll learn Python fundamentals like variables, loops, conditionals, and functions. Then youll quickly ramp up to complex data structures, networking, relational databases, and data visualization.",
-        "price": 700,
+        "img": "https://i.ibb.co/RQNSrqQ/white-teeth.jpg",
+        "name": "Invisalign",
+        "description": "The easy way to straighten your teeth. The Invisalign system uses clear, removable aligners. Great for adults and teens.",
+        "price": 700
     },
     {
         "id": 8,
-        "img": "https://cdn.pixabay.com/photo/2021/05/11/17/21/charts-6246450_960_720.png",
-        "name": "Data Visualization",
-        "description": "In the Data Visualization Certification, youll build charts, graphs, and maps to present different types of data with the D3.js library.Youll also learn about JavaScript Object Notation and how to work with data online using an Application Programming Interface.",
-        "price": 800,
+        "img": "https://i.ibb.co/KLgJZSG/young-african-american-man-guy-visiting-dentist-s-office-prevention-oral-cavity-man-famale-doctor-wh.jpg",
+        "name": "Veneers",
+        "description": "Thin, custom-made shells that fit around your teeth to improve their appearance. Usually made of porcelain or resin, veneers change the shape, color, length, or size of your teeth.",
+        "price": 800
     },
     {
         "id": 9,
-        "img": "https://cdn.pixabay.com/photo/2017/03/23/12/56/security-2168233_960_720.jpg",
-        "name": "Information Security",
-        "description": "With everything we do online, theres a vast amount of sensitive information at risk: email addresses, passwords, phone numbers, and much more.With the Information Security Certification, youll build a secure web app with HelmetJS to learn the fundamentals of protecting peoples information online.",
-        "price": 900,
+        "img": "https://i.ibb.co/MpqfTYK/young-african-american-man-guy-visiting-dentist-s-office-prevention-oral-cavity-man-famale-doctor-wh.jpg",
+        "name": "Cosmetic Bonding",
+        "description": "Dental bonding, sometimes called composite bonding or teeth bonding, is a cosmetic dentistry treatment used to enhance your smile. ",
+        "price": 900
     }
 ]
