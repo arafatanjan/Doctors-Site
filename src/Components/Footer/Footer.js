@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="row">
                 <div className="col">
                     <h4>Frequently Asked Questions</h4>
-                    <h6>More questions? We are  ready to help. Give us a call at (303) 220-7662 or book your free consultation now.</h6>
+                    <h6 className='d-block m-auto'>More questions? We are  ready to help. Give us a call at (303) 220-7662 or book your free consultation now.</h6>
                 </div>
                 <div className="col"><div className="accordion" id="accordionExample">
                     <div className="accordion-item">
@@ -40,7 +40,7 @@ const Footer = () => {
                                 Accordion Item #3
                             </button>
                         </h6>
-                        <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" className="accordion-collapse collapse " aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
                                 <strong>This is the third item's accordion body.</strong> <p>
                                     It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit </p>.

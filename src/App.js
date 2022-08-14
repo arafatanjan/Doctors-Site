@@ -34,6 +34,7 @@ function App() {
           </Route>
           <Route path='/warranty' element={<Warranty></Warranty>}></Route>
           <Route path='/loggedin' element={<Loggedin></Loggedin>}></Route>
+          <Route path='/service/:serviceId'></Route>
 
           <Route path='*' element={<Notfound></Notfound>}>
 
