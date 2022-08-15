@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import initializeAuthentication from '../../Firebase/firebse.initialize';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
+import useAuth from '../../Hook/useAuth';
 
 
 initializeAuthentication();
@@ -11,7 +12,9 @@ const githubProvider = new GithubAuthProvider();
 const auth = getAuth();
 
 const Loggedin = () => {
+    const { signInUsingGoole } = useAuth();
     const [email, setEmail] = useState('');
+    // const [users, setUsers] = useState({});
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [islogin, setIslogin] = useState(false);
@@ -20,25 +23,24 @@ const Loggedin = () => {
         email: "",
         uid: "",
     });
-    const handleGoogleSignIn = () => {
+    // const handleGoogleSignIn = () => {
 
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                const gituser = result.user;
-                console.log(gituser);
-                const { displayName, email } = result.user.providerData[0];
-                const loginuser = {
-                    name: displayName,
-                    email: email,
+    //     signInWithPopup(auth, googleProvider)
+    //         .then(result => {
+    //             const gituser = result.user;
+    //             console.log(gituser);
+    //             const { displayName, email } = result.user.providerData[0];
+    //             const loginuser = {
+    //                 name: displayName,
+    //                 email: email,
 
-                };
-                setUser(loginuser);
-            })
-            .catch(error => {
-                console.log(error.message);
-            })
-    }
-
+    //             };
+    //             setUser(loginuser);
+    //         })
+    //         .catch(error => {
+    //             console.log(error.message);
+    //         })
+    // }
     const handleGithubSignIn = () => {
         signInWithPopup(auth, githubProvider)
             .then(result => {
@@ -165,7 +167,7 @@ const Loggedin = () => {
                 <button onClick={handleSignOut}>  Sign Out</button>
                 :
                 <div>
-                    <button onClick={handleGoogleSignIn}> Google Sign in</button>
+                    <button onClick={signInUsingGoole}> Google Sign in</button>
                     <button onClick={handleGithubSignIn}> Github Sign in</button>
                 </div>
             }
