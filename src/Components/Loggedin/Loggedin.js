@@ -175,10 +175,15 @@ const Loggedin = () => {
             {user.name ?
                 <h2>{user?.name}</h2>
                 :
-                <h2>{user?.uid}</h2>}
-            <p>Programming is fun! </p>
+                <h2></h2>}
+            <br />
+            <br />
+            <br />
+            {/* <h2>{user?.uid}</h2>
+            <p>Programming is fun! </p> */}
 
         </div>
+
 
     );
 };

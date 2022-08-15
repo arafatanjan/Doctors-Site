@@ -12,31 +12,34 @@ const Header = () => {
     return (
         <div>
             <>
-                <Navbar sticky="top" bg="light" variant="light" collapseOnSelect expand="lg">
+                <Navbar sticky="top" bg="light" variant="light" collapseOnSelect expand="lg" className="me-auto">
                     <Container>
                         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-
-                        <Nav className="me-auto">
-                            <br />
-                            <NavLink as={Link} to="/home">Home</NavLink>
-                            <NavLink as={Link} to="/services">Services</NavLink>
-                            <NavLink as={Link} to="/newpatients">Newpatient</NavLink>
-                            {user?.email ?
-                                <Button variant="light">Logout</Button> :
-                                <NavLink as={Link} to="/loggedin">Log in</NavLink>
-                            }
-                        </Nav>
                         <Navbar.Toggle />
+
                         <Navbar.Collapse className="justify-content-end">
+                            <Nav className="me-auto">
+
+
+
+                                <NavLink as={Link} to="/home">Home</NavLink>
+                                <NavLink as={Link} to="/services">Services</NavLink>
+                                <NavLink as={Link} to="/newpatients">Newpatient</NavLink>
+
+                                {user?.email ?
+                                    <NavLink variant="light">Logout</NavLink> :
+                                    <NavLink as={Link} to="/loggedin">Log in</NavLink>
+                                }
+                            </Nav>
                             <Navbar.Text>
-                                Signed in as: <a href="#login">{user?.displayName}</a>
+                                Signed in as: <a href="#login">{user?.name}</a>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
             </>
 
-        </div>
+        </div >
     );
 };
 
