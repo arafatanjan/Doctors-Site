@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <div>
             <>
-                <Navbar sticky="top" bg="light" variant="light" collapseOnSelect expand="lg" className="me-auto">
+                <Navbar sticky='top' bg="light" variant="light" collapseOnSelect expand="lg" className="me-auto">
                     <Container>
                         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
                         <Navbar.Toggle />
@@ -25,13 +25,14 @@ const Header = () => {
                                 <NavLink as={Link} to="/home">Home</NavLink>
                                 <NavLink as={Link} to="/services">Services</NavLink>
                                 <NavLink as={Link} to="/newpatients">Newpatient</NavLink>
+                                <NavLink as={Link} to="/warranty">Warranty</NavLink>
 
                                 {user?.email ?
-                                    <NavLink variant="light">Logout</NavLink> :
+                                    <NavLink> <button onClick={logout} variant="light">Logout</button></NavLink> :
                                     <NavLink as={Link} to="/loggedin">Log in</NavLink>
                                 }
                             </Nav>
-                            <Navbar.Text>
+                            <Navbar.Text className='strong'>
                                 Signed in as: <a href="#login">{user?.name}</a>
                             </Navbar.Text>
                         </Navbar.Collapse>

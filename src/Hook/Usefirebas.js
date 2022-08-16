@@ -17,7 +17,7 @@ const Usefirebas = () => {
             .then(result => {
                 const googleuser = result.user;
                 console.log(googleuser);
-                const { displayName, email } = result.user.providerData[0];
+                const { displayName, email } = result.user;
                 const loginuser = {
                     name: displayName,
                     email: email,
@@ -60,17 +60,17 @@ const Usefirebas = () => {
     //     return () => unsubscribed;
     // }, []);
 
-    const handleSignOut = () => {
+    const logout = () => {
         signOut(auth)
-            .then(() => {
-                setUser({});
-            })
+            .then(() => { });
+
     }
 
 
     return {
         user,
-        signInUsingGoole
+        signInUsingGoole,
+        logout
     };
 };
 

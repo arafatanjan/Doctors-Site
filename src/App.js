@@ -13,6 +13,7 @@ import Newpatients from './Components/Newpatients/Newpatients';
 import Loggedin from './Components/Loggedin/Loggedin';
 import Booking from './Components/Booking/Booking';
 import Authprovider from './context/Authprovider';
+import Privateroute from './Components/PrivateRoute/Privateroute';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
             </Route>
             <Route path='/warranty' element={<Warranty></Warranty>}></Route>
             <Route path='/loggedin' element={<Loggedin></Loggedin>}></Route>
-            <Route path='/booking/:serviceId' element={<Booking></Booking>}></Route>
+            <Privateroute path='/booking/:serviceId' element={<Booking></Booking>}></Privateroute>
 
             <Route path='*' element={<Notfound></Notfound>}>
 
