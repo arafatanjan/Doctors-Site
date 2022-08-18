@@ -24,8 +24,12 @@ const Home = () => {
                 <br />
             </div>
             <div className='col'>
-                <img src={dental} alt="" />
+                <br />
+
+                <img className='img-fluid' src={dental} alt="" />
             </div>
+            <br />
+            <br />
         </div>
 
     );

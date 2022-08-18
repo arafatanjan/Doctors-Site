@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import initializeAuthentication from '../../Firebase/firebse.initialize';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { useState } from 'react';
 import useAuth from '../../Hook/useAuth';
 import { useNavigate } from 'react-router-dom';

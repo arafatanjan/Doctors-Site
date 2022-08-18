@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { useState, useEffect } from 'react';
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebse.initialize';
 
 initializeAuthentication();
 
 
-const Usefirebas = () => {
+const Usefirebase = () => {
     const [user, setUser] = useState({});
 
     const auth = getAuth();
@@ -30,37 +30,39 @@ const Usefirebas = () => {
             })
     }
     // observer user state change
-    useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, users => {
-            if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-                setUser(user);
-                // ...
-            }
-            else {
-                // User is signed out
-                setUser({})
-            }
-        });
-        return () => unsubscribed;
-    }, []);
-
-
     // useEffect(() => {
-    //     const unsubscribed = onAuthStateChanged(auth, users => {
-    //         if (users) {
+    //     const unsubscribed = onAuthStateChanged(auth, user => {
+    //         if (user) {
     //             // User is signed in, see docs for a list of available properties
     //             // https://firebase.google.com/docs/reference/js/firebase.User
     //             setUser(user);
     //             // ...
-    //         } else {
+    //         }
+    //         else {
     //             // User is signed out
     //             setUser({})
     //         }
     //     });
     //     return () => unsubscribed;
-    // }, []);
+    // }, [auth, user]);
+
+
+    useEffect(() => {
+        const unsubscribed = onAuthStateChanged(auth, user => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                setUser(user);
+                console.log(user);
+                // ...
+            } else {
+                // User is signed out
+                setUser({})
+
+            }
+        });
+        return () => unsubscribed;
+    }, [auth]);
 
     const logout = () => {
         signOut(auth)
@@ -76,4 +78,4 @@ const Usefirebas = () => {
     };
 };
 
-export default Usefirebas;
+export default Usefirebase;
