@@ -4,12 +4,14 @@ import initializeAuthentication from '../../Firebase/firebse.initialize';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
 import useAuth from '../../Hook/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 
 initializeAuthentication();
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const auth = getAuth();
+
 
 const Loggedin = () => {
     const { signInUsingGoole } = useAuth();
@@ -73,6 +75,14 @@ const Loggedin = () => {
 
     const handlePasswordChange = e => {
         setPassword(e.target.value)
+    }
+    const navigate = useNavigate;
+
+    const navigateLogin = () => {
+        navigate('/login')
+    }
+    if (user) {
+        navigate('/home');
     }
     const handleRegitrtion = e => {
         // console.log(email, password);

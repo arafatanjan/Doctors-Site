@@ -5,9 +5,9 @@ const Servicing = ({ service }) => {
     const { id, name, description, price, img } = service;
     return (
         <div className='servicing-container pb-3'>
-            <div className='col-md-4 col-xs-6 d-block m-auto'> <img className='img-fluid img-circle' w-100 src={img} alt="" /></div>
+            <div className='col-md-4 col-xs-6 d-block m-auto'> <img className='img-fluid img-circle' src={img} alt="" /></div>
             <h4>{name}</h4>
-            <div className="d-block m-auto"><p6>{description}</p6></div>
+            <div className="d-block m-auto"><p>{description}</p></div>
             <h6>{price}</h6>
             <Link to={`/booking/${id}`}> <button className='btn btn-warning'>Booking Now</button></Link>
         </div>

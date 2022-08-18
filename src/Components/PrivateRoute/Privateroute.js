@@ -1,23 +1,17 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router';
-import useAuth from '../../Hook/useAuth';
+// import { Route } from 'react-router';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate, useLocation } from 'react-router-dom';
+import auth from '../../../src/Hook/Usefirebas'
 
-const Privateroute = ({ children, ...rest }) => {
-    const { user } = useAuth()
-    return (
+const Privateroute = ({ children }) => {
+    const [user] = useAuthState(auth);
+    const location = useLocation();
+    if (!user) {
+        return <Navigate to="/loggedin" state={{ from: location }} replace />;
+    }
 
-        <Route
-            {...rest}
-            render={({ location }) => user.email ? children : <Redirect to={{
-                pathname: "/login",
-                state: { from: location }
-            }}>
-
-            </Redirect>
-            }>
-        </Route>
-
-    );
+    return children;
 };
 
 export default Privateroute;

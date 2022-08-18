@@ -29,6 +29,7 @@ const Usefirebas = () => {
                 console.log(error.message);
             })
     }
+    // observer user state change
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, users => {
             if (user) {
@@ -36,7 +37,8 @@ const Usefirebas = () => {
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 setUser(user);
                 // ...
-            } else {
+            }
+            else {
                 // User is signed out
                 setUser({})
             }
