@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 const Booking = () => {
-    const { serviceId } = useParams()
+    const { serviceId } = useParams();
     return (
         <div>
             <br />

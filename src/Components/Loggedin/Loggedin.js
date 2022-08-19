@@ -47,14 +47,14 @@ const Loggedin = () => {
         signInWithPopup(auth, githubProvider)
             .then(result => {
                 const gituser = result.user;
-                console.log(gituser);
+                // console.log(gituser);
                 const { displayName, email, uid } = result.user.providerData[0];
                 const loginuser = {
                     name: displayName,
                     email: email,
                     uid: uid
                 };
-                console.log(uid)
+                // console.log(uid)
                 setUser(loginuser);
             })
     }
@@ -76,14 +76,12 @@ const Loggedin = () => {
     const handlePasswordChange = e => {
         setPassword(e.target.value)
     }
-    const navigate = useNavigate;
+    const navigate = useNavigate();
 
     const navigateLogin = () => {
-        navigate('/login')
+        navigate('/loggedin');
     }
-    if (user) {
-        navigate('/home');
-    }
+
     const handleRegitrtion = e => {
         // console.log(email, password);
         e.preventDefault();
@@ -102,7 +100,7 @@ const Loggedin = () => {
                 .then(result => {
                     // Signed in 
                     const user = result.user;
-                    console.log(user);
+                    // console.log(user);
                     setError('');
                     // ...
                 })
@@ -118,7 +116,7 @@ const Loggedin = () => {
                 .then(result => {
                     // Signed in 
                     const user = result.user;
-                    console.log(user);
+                    // console.log(user);
                     setError('');
                     // ...
                     verifyEmail();
@@ -130,6 +128,9 @@ const Loggedin = () => {
                     // ..
                 });
         }
+        if (user) {
+            navigate('/home');
+        }
 
 
     }
@@ -138,7 +139,7 @@ const Loggedin = () => {
             .then(result => {
                 // Email verification sent!
                 // ...
-                console.log(result);
+                // console.log(result);
             });
     }
     return (
