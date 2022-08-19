@@ -49,6 +49,7 @@ const Footer = () => {
                     </div>
                 </div></div>
             </div>
+            <p> <small>copyright@arafatanjan</small></p>
         </div>
     );
 };
