@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import initializeAuthentication from '../../Firebase/firebse.initialize';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
@@ -14,6 +14,8 @@ const auth = getAuth();
 
 
 const Loggedin = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
     const { signInUsingGoole } = useAuth();
     const [email, setEmail] = useState('');
     // const [users, setUsers] = useState({});
@@ -82,9 +84,11 @@ const Loggedin = () => {
         navigate('/loggedin');
     }
 
-    const handleRegitrtion = e => {
+    const handleRegitrtion = event => {
         // console.log(email, password);
-        e.preventDefault();
+        event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
         if (password.length < 6) {
             setError('Pasword must be 6')
             return;
@@ -144,19 +148,19 @@ const Loggedin = () => {
     }
     return (
 
-        <div className="">
-            <h3 className='text-primary'>Please {islogin ? 'Login' : 'Register'}</h3>
+        <div className="container mx-auto w-50">
+            <h3 className='text-primary my-2'>Please {islogin ? 'Login' : 'Register'}</h3>
             <form onSubmit={handleRegitrtion}>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" required />
+                        <input onBlur={handleEmailChange} type="email" ref={emailRef} placeholder='Enter Email' className="form-control" id="inputEmail3" required />
                     </div>
                 </div>
                 <div className="row mb-3">
-                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
+                    <label htmlFor="inputPassword3" className="col-sm-2  col-form-label">Password</label>
                     <div className="col-sm-10">
-                        <input onBlur={handlePasswordChange} type="password" className="form-control" id="inputPassword3" required />
+                        <input onBlur={handlePasswordChange} type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
                     </div>
                 </div>
                 <div>

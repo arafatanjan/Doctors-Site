@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 import initializeAuthentication from '../Firebase/firebse.initialize';
 
@@ -17,7 +17,7 @@ const Usefirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const googleuser = result.user;
-                // console.log(googleuser);
+                console.log(googleuser);
                 const { displayName, email } = result.user;
                 const loginuser = {
                     name: displayName,
@@ -45,26 +45,25 @@ const Usefirebase = () => {
     //         }
     //     });
     //     return () => unsubscribed;
-    // }, []);
+    // }, [auth, user]);
 
 
+    useEffect(() => {
+        const unsubscribed = onAuthStateChanged(auth, user => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                setUser(user);
+                console.log('ddddd');
+                // ...
+            } else {
+                // User is signed out
+                setUser({})
 
-    // const unsubscribed = onAuthStateChanged(auth, user => {
-    //     if (user) {
-    //         // User is signed in, see docs for a list of available properties
-    //         // https://firebase.google.com/docs/reference/js/firebase.User
-    //         setUser(user);
-    //         console.log('ddddd');
-    //         // ...
-    //     } else {
-    //         // User is signed out
-    //         setUser({})
-
-    //     }
-    // })
-    // { }
-    // return () => unsubscribed;
-
+            }
+        });
+        return () => unsubscribed;
+    }, [auth]);
 
     const logout = () => {
         signOut(auth)
