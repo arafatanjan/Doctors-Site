@@ -17,9 +17,9 @@ const Loggedin = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const { signInUsingGoole } = useAuth();
-    const [email, setEmail] = useState('');
-    // const [users, setUsers] = useState({});
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // // const [users, setUsers] = useState({});
+    // const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [islogin, setIslogin] = useState(false);
     const [user, setUser] = useState({
@@ -71,13 +71,13 @@ const Loggedin = () => {
     const toggleLogin = e => {
         setIslogin(e.target.checked);
     }
-    const handleEmailChange = e => {
-        setEmail(e.target.value);
-    }
+    // const handleEmailChange = e => {
+    //     setEmail(e.target.value);
+    // }
 
-    const handlePasswordChange = e => {
-        setPassword(e.target.value)
-    }
+    // const handlePasswordChange = e => {
+    //     setPassword(e.target.value)
+    // }
     const navigate = useNavigate();
 
     const navigateLogin = () => {
@@ -89,6 +89,7 @@ const Loggedin = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
+        console.log(email, password);
         if (password.length < 6) {
             setError('Pasword must be 6')
             return;
@@ -113,6 +114,9 @@ const Loggedin = () => {
                     const errorMessage = error.message;
                     console.log(errorMessage);
                 });
+            if (user && password) {
+                navigate('/home');
+            }
         };
 
         function createNewUser(email, password) {
@@ -132,9 +136,7 @@ const Loggedin = () => {
                     // ..
                 });
         }
-        if (user) {
-            navigate('/home');
-        }
+
 
 
     }
@@ -154,14 +156,20 @@ const Loggedin = () => {
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input onBlur={handleEmailChange} type="email" ref={emailRef} placeholder='Enter Email' className="form-control" id="inputEmail3" required />
+                        <input type="email" ref={emailRef} placeholder='Enter Email' className="form-control" id="inputEmail3" required />
                     </div>
+                    {/* <div className="col-sm-10">
+                        <input onBlur={handleEmailChange} type="email" ref={emailRef} placeholder='Enter Email' className="form-control" id="inputEmail3" required />
+                    </div> */}
                 </div>
                 <div className="row mb-3">
                     <label htmlFor="inputPassword3" className="col-sm-2  col-form-label">Password</label>
                     <div className="col-sm-10">
-                        <input onBlur={handlePasswordChange} type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
+                        <input type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
                     </div>
+                    {/* <div className="col-sm-10">
+                        <input onBlur={handlePasswordChange} type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
+                    </div> */}
                 </div>
                 <div>
                     <div className="col-sm-10 offset-sm-2">
