@@ -1,3 +1,6 @@
+// import { initializeApp } from "firebase/app";
+// import { getAuth } from "firebase/auth";
+
 const firebaseConfig = {
     apiKey: "AIzaSyB6QuYijIaMZG6iW-8KqlZDCz-OoLt_T_I",
     authDomain: "doctors-site-f9de7.firebaseapp.com",
@@ -8,4 +11,13 @@ const firebaseConfig = {
     measurementId: "G-3RMD4NGCV0"
 };
 
+// const app = initializeApp(firebaseConfig);
+
+// export const auth = getAuth(app);
+
+// export default auth;
+
 export default firebaseConfig;
+
+
+

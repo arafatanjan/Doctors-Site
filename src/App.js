@@ -15,9 +15,13 @@ import Booking from './Components/Booking/Booking';
 import Authprovider from './context/Authprovider';
 // import Privateroute from './Components/PrivateRoute/Privateroute';
 import RequiredAuth from './Components/PrivateRoute/RequiredAuth';
+
+import app from './Firebase/firebase.config'
+import auth from './Firebase/firebase.config';
+// import initializeAuthentication from '../src/Firebase/firebse.initialize'
 // import Route from './Components/Route/Route';
 
-
+// initializeAuthentication();
 function App() {
   return (
     <div className="App">
@@ -40,6 +44,7 @@ function App() {
             </Route>
             <Route path='/warranty' element={<Warranty></Warranty>}></Route>
             <Route path='/loggedin' element={<Loggedin></Loggedin>}></Route>
+
             <Route path='/booking/:serviceId' element={<RequiredAuth><Booking></Booking></RequiredAuth>}></Route>
 
             <Route path='*' element={<Notfound></Notfound>}>

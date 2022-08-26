@@ -5,15 +5,18 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signO
 import { useState } from 'react';
 import useAuth from '../../Hook/useAuth';
 import { useNavigate } from 'react-router-dom';
+// import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 
 initializeAuthentication();
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const auth = getAuth();
+console.log(auth);
 
 
 const Loggedin = () => {
+
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const { signInUsingGoole } = useAuth();
@@ -27,24 +30,24 @@ const Loggedin = () => {
         email: "",
         uid: "",
     });
-    // const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = () => {
 
-    //     signInWithPopup(auth, googleProvider)
-    //         .then(result => {
-    //             const gituser = result.user;
-    //             console.log(gituser);
-    //             const { displayName, email } = result.user.providerData[0];
-    //             const loginuser = {
-    //                 name: displayName,
-    //                 email: email,
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const gituser = result.user;
+                console.log(gituser);
+                const { displayName, email } = result.user.providerData[0];
+                const loginuser = {
+                    name: displayName,
+                    email: email,
 
-    //             };
-    //             setUser(loginuser);
-    //         })
-    //         .catch(error => {
-    //             console.log(error.message);
-    //         })
-    // }
+                };
+                setUser(loginuser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     const handleGithubSignIn = () => {
         signInWithPopup(auth, githubProvider)
             .then(result => {
@@ -105,18 +108,20 @@ const Loggedin = () => {
                 .then(result => {
                     // Signed in 
                     const user = result.user;
+                    const password = result.password;
                     // console.log(user);
                     setError('');
                     // ...
+                    if (user && password) {
+                        navigate('/home');
+                    }
                 })
                 .catch((error) => {
 
                     const errorMessage = error.message;
                     console.log(errorMessage);
                 });
-            if (user && password) {
-                navigate('/home');
-            }
+
         };
 
         function createNewUser(email, password) {
@@ -190,15 +195,15 @@ const Loggedin = () => {
                 <button onClick={handleSignOut}>  Sign Out</button>
                 :
                 <div>
-                    <button onClick={signInUsingGoole}> Google Sign in</button>
+                    <button onClick={handleGoogleSignIn}> Google Sign in</button>
                     <button onClick={handleGithubSignIn}> Github Sign in</button>
                 </div>
             }
             <br />
-            {user.name ?
+            {/* {user.name ?
                 <h2>{user?.name}</h2>
                 :
-                <h2></h2>}
+                <h2></h2>} */}
             <br />
             <br />
             <br />
