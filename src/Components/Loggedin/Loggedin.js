@@ -5,8 +5,10 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signO
 import { useState } from 'react';
 import useAuth from '../../Hook/useAuth';
 import { useNavigate } from 'react-router-dom';
+import './Loggedin.css';
 // import Usefirebase from '../../Hook/Usefirebase';
-import signInUsingGoole from '../../Hook/Usefirebase'
+// import signInUsingGoole from '../../Hook/Usefirebase'
+// import handleGithubSignIn from '../../Hook/Usefirebase'
 // import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 
@@ -19,9 +21,10 @@ const auth = getAuth();
 
 
 const Loggedin = () => {
-    const { signInUsingGoole } = useAuth();
+    const { signInUsingGoole, handleGithubSignIn } = useAuth();
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const nameRef = useRef('');
     // const { signInUsingGoole } = useAuth();
     // const [email, setEmail] = useState('');
     // // const [users, setUsers] = useState({});
@@ -34,40 +37,40 @@ const Loggedin = () => {
         uid: "",
     });
     // const handleGoogleSignIn = Usefirebase();
-    const handleGoogleSignIn = () => {
+    // const handleGoogleSignIn = () => {
 
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                const gituser = result.user;
-                console.log(gituser);
-                const { displayName, email } = result.user.providerData[0];
-                const loginuser = {
-                    name: displayName,
-                    email: email,
+    //     signInWithPopup(auth, googleProvider)
+    //         .then(result => {
+    //             const gituser = result.user;
+    //             console.log(gituser);
+    //             const { displayName, email } = result.user.providerData[0];
+    //             const loginuser = {
+    //                 name: displayName,
+    //                 email: email,
 
-                };
-                setUser(loginuser);
-            })
-            .catch(error => {
-                console.log(error.message);
-            })
-    }
-    const handleGithubSignIn = () => {
-        signInWithPopup(auth, githubProvider)
-            .then(result => {
-                const gituser = result.user;
-                // console.log(gituser);
-                const { displayName, email, uid } = result.user.providerData[0];
-                const loginuser = {
-                    name: displayName,
-                    email: email,
-                    uid: uid
-                };
-                // console.log(uid)
-                setUser(loginuser);
-            })
-    }
+    //             };
+    //             setUser(loginuser);
+    //         })
+    //         .catch(error => {
+    //             console.log(error.message);
+    //         })
+    // }
 
+    // const handleGithubSignIn = () => {
+    //     signInWithPopup(auth, githubProvider)
+    //         .then(result => {
+    //             const gituser = result.user;
+    //             // console.log(gituser);
+    //             const { displayName, email, uid } = result.user.providerData[0];
+    //             const loginuser = {
+    //                 name: displayName,
+    //                 email: email,
+    //                 uid: uid
+    //             };
+    //             // console.log(uid)
+    //             setUser(loginuser);
+    //         })
+    // }
     const handleSignOut = () => {
         signOut(auth)
             .then(() => {
@@ -96,7 +99,8 @@ const Loggedin = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password);
+        const name = nameRef.current.value;
+        console.log(name, email, password);
         if (password.length < 6) {
             setError('Pasword must be 6')
             return;
@@ -162,6 +166,13 @@ const Loggedin = () => {
         <div className="container mx-auto w-50">
             <h3 className='text-primary my-2'>Please {islogin ? 'Login' : 'Register'}</h3>
             <form onSubmit={handleRegitrtion}>
+
+                <div className="row mb-3">
+                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Name</label>
+                    <div className="col-sm-10">
+                        <input type="email" ref={nameRef} placeholder='Enter Name' className="form-control" id="inputEmail3" required />
+                    </div>
+                </div>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
@@ -181,7 +192,7 @@ const Loggedin = () => {
                     </div> */}
                 </div>
                 <div>
-                    <div className="col-sm-10 offset-sm-2">
+                    <div className="col-sm-10 offset-sm-2 ">
                         <div className="form-check">
                             <input onChange={toggleLogin} className="form-check-input" type="checkbox" id="gridCheck1" />
                             <label className="form-check-label" htmlFor="gridCheck1">

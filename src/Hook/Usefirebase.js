@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, GithubAuthProvider } from "firebase/auth";
 import auth from '../Firebase/firebase.config';
 
 import initializeAuthentication from '../Firebase/firebse.initialize';
@@ -12,13 +12,14 @@ initializeAuthentication();
 const Usefirebase = () => {
 
     const [user, setUser] = useState({});
-    const [loginuser, setLoginuser] = useState({});
+    // const [loginuser, setLoginuser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
     // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const signInUsingGoole = () => {
         setIsLoading(true);
@@ -37,6 +38,22 @@ const Usefirebase = () => {
             .finally(() => setIsLoading(false));
         // .catch(error => {
         //     console.log(error.message);
+    }
+
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const gituser = result.user;
+                console.log(gituser);
+                const { displayName, email, uid } = result.user.providerData[0];
+                const loginuser = {
+                    name: displayName,
+                    email: email,
+                    uid: uid
+                };
+                // console.log(uid)
+                setUser(loginuser);
+            })
     }
 
     // observer user state change
@@ -88,7 +105,8 @@ const Usefirebase = () => {
         user,
         signInUsingGoole,
         logout,
-        isLoading
+        isLoading,
+        handleGithubSignIn
     };
 };
 
