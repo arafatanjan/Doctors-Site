@@ -4,21 +4,51 @@ import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../../../src/Hook/Usefirebase'
 import useAuth from '../../Hook/useAuth';
 import Loading from '../Loggedin/Loading';
+// import { Route } from 'react-router-dom';
+// import { Redirect } from 'react-router';
+
+
+
 
 const RequiredAuth = ({ children }) => {
-    const [user, loading] = useAuthState(auth);
-    // const { user, logout } = useAuth();
-    // console.log(user);
+    // const [user, loading] = useAuthState(auth);
+    const { user, isLoading } = useAuth();
+    console.log(user);
     const location = useLocation();
-    // if (loading) {
-    //     return <Loading></Loading>
-    // }
 
-    if (!user) {
-        return <Navigate to="/loggedin" state={{ from: location }} replace />;
+    if (isLoading) {
+        return <Loading></Loading>
     }
 
+    if (!user.email) {
+        return <Navigate to="/loggedin" state={{ from: location }} replace />;
+    }
     return children;
-};
+}
+
+//     
 
 export default RequiredAuth;
+
+// const RequiredAuth = ({ children, ...rest }) => {
+
+//     const { user, logout } = useAuth();
+
+//return (
+    //         <Route
+    //             {...rest}
+    //             render={({ location }) =>
+    //                 auth.user ? (
+    //                     children
+    //                 ) : (
+    //                     <Redirect
+    //                         to={{
+    //                             pathname: "/login",
+    //                             state: { from: location }
+    //                         }}
+    //                     />
+    //                 )
+    //             }
+    //         />
+    //     );
+    // };

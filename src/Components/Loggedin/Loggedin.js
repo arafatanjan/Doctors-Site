@@ -5,21 +5,24 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signO
 import { useState } from 'react';
 import useAuth from '../../Hook/useAuth';
 import { useNavigate } from 'react-router-dom';
+// import Usefirebase from '../../Hook/Usefirebase';
+import signInUsingGoole from '../../Hook/Usefirebase'
 // import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 
 initializeAuthentication();
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
+
 const auth = getAuth();
-console.log(auth);
+// console.log(auth);
 
 
 const Loggedin = () => {
-
+    const { signInUsingGoole } = useAuth();
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const { signInUsingGoole } = useAuth();
+    // const { signInUsingGoole } = useAuth();
     // const [email, setEmail] = useState('');
     // // const [users, setUsers] = useState({});
     // const [password, setPassword] = useState('');
@@ -30,6 +33,7 @@ const Loggedin = () => {
         email: "",
         uid: "",
     });
+    // const handleGoogleSignIn = Usefirebase();
     const handleGoogleSignIn = () => {
 
         signInWithPopup(auth, googleProvider)
@@ -80,7 +84,7 @@ const Loggedin = () => {
 
     // const handlePasswordChange = e => {
     //     setPassword(e.target.value)
-    // }
+    //  }
     const navigate = useNavigate();
 
     const navigateLogin = () => {
@@ -195,7 +199,7 @@ const Loggedin = () => {
                 <button onClick={handleSignOut}>  Sign Out</button>
                 :
                 <div>
-                    <button onClick={handleGoogleSignIn}> Google Sign in</button>
+                    <button onClick={signInUsingGoole}> Google Sign in</button>
                     <button onClick={handleGithubSignIn}> Github Sign in</button>
                 </div>
             }

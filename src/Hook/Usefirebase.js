@@ -13,29 +13,32 @@ const Usefirebase = () => {
 
     const [user, setUser] = useState({});
     const [loginuser, setLoginuser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
-    // const auth = getAuth();
+    const auth = getAuth();
     // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-    // const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
 
-    // const signInUsingGoole = () => {
-    //     signInWithPopup(auth, googleProvider)
-    //         .then(result => {
-    //             const googleuser = result.user;
-    //             console.log(googleuser);
-    //             const { displayName, email } = result.user;
-    //             const loginuser = {
-    //                 name: displayName,
-    //                 email: email,
+    const signInUsingGoole = () => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const googleuser = result.user;
+                console.log(googleuser);
+                const { displayName, email } = result.user;
+                const user = {
+                    name: displayName,
+                    email: email,
 
-    //             };
-    //             setLoginuser(loginuser);
-    //         })
-    //         .catch(error => {
-    //             console.log(error.message);
-    //         })
-    // }
+                };
+                setUser(user);
+            })
+            .finally(() => setIsLoading(false));
+        // .catch(error => {
+        //     console.log(error.message);
+    }
+
     // observer user state change
     // useEffect(() => {
     //     const unsubscribed = onAuthStateChanged(auth, user => {
@@ -54,34 +57,38 @@ const Usefirebase = () => {
     // }, [auth, user]);
 
 
-    // useEffect(() => {
-    //     const unsubscribed = onAuthStateChanged(auth, user => {
-    //         if (user) {
-    //             // User is signed in, see docs for a list of available properties
-    //             // https://firebase.google.com/docs/reference/js/firebase.User
-    //             setUser(user);
-    //             console.log('ddddd');
-    //             // ...
-    //         } else {
-    //             // User is signed out
-    //             setUser({})
+    useEffect(() => {
+        const unsubscribed = onAuthStateChanged(auth, user => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                setUser(user);
 
-    //         }
-    //     });
-    //     return () => unsubscribed;
-    // }, []);
+                // ...
+            } else {
+                // User is signed out
+                setUser({})
+
+            }
+            setIsLoading(false);
+        });
+        return () => unsubscribed;
+    }, []);
 
     const logout = () => {
+        setIsLoading(true);
         signOut(auth)
-            .then(() => { });
+            .then(() => { })
+            .finally(() => setIsLoading(false));
 
     }
 
 
     return {
         user,
-        // signInUsingGoole,
-        logout
+        signInUsingGoole,
+        logout,
+        isLoading
     };
 };
 
