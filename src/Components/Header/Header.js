@@ -27,7 +27,7 @@ const Header = () => {
                                 <NavLink as={Link} to="/newpatients">Newpatient</NavLink>
                                 <NavLink as={Link} to="/warranty">Warranty</NavLink>
 
-                                {user?.email ?
+                                {user?.name ?
                                     <NavLink> <button onClick={logout} variant="light" className='btn btn-light tex-black text-decoration-none mt-0 pt-0'>Logout</button></NavLink> :
                                     <NavLink as={Link} to="/loggedin">Log in</NavLink>
                                 }

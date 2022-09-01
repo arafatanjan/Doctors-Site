@@ -20,7 +20,7 @@ const RequiredAuth = ({ children }) => {
         return <Loading></Loading>
     }
 
-    if (!user.email) {
+    if (!user.name) {
         return <Navigate to="/loggedin" state={{ from: location }} replace />;
     }
     return children;
