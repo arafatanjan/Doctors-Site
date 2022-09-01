@@ -11,14 +11,16 @@ const Footer = () => {
                 </div>
                 <div className="col"><div className="accordion" id="accordionExample">
                     <div className="accordion-item">
-                        <h6 className="accordion-header" id="headingOne">
-                            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h6 className="accordion-header" id="headingTwo">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Accordion Item #1
                             </button>
                         </h6>
-                        <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <strong>We’re a group of energetic, values-driven dental clinicians </strong>  dedicated to caring for all people — young to young at heart. Since 2002, we’ve been combining exciting technology with a warm and friendly team to deliver exceptional dentistry in Greenwood Village.
+
+                                Find all the dental care you need (and then some) here in our beautiful office, designed for  <code>.your comfort and rejuvenation.</code>, though the transition does limit overflow.
                             </div>
                         </div>
                     </div>
